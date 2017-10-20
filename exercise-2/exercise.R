@@ -3,7 +3,7 @@
 # Load the httr and jsonlite libraries for accessing data
 
 
-# Create a `base.uri` variable that holds the base uri. You wil then paste endpoints to this base.
+# Create a `base.uri` variable that holds the base uri. You will then paste endpoints to this base.
 
 
 
