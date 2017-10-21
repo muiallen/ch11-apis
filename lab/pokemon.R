@@ -1,5 +1,9 @@
 ### API Practice ###
 
+## Load the httr and jsonlite libraries for accessing data
+library("httr")
+library("jsonlite")
+
 # What is the name of the first pokemon?
 response <- GET("http://pokeapi.co/api/v2/pokemon/1")
 body <- content(response,"text")
