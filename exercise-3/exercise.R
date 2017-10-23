@@ -4,8 +4,10 @@
 library(dplyr)
 
 # We'll be using the mtcars dataset -- adding rowname as a column
-vehicle <- add_rownames(mtcars, var='car')
-
+vehicle <- tibble::rownames_to_column(mtcars, var='car')
+                           # Note: 'tibble::' takes the function 'rownames_to_column()'
+                           # from the tibble package withouth the need to load it
+                           # explicitly with 'library(tibble)'
 
 ######## buggy ######### ----------------------------------------------
 
