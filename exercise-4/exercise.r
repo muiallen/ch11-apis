@@ -4,7 +4,9 @@ library(httr)
 
 # Make a variable base.url that has the same base url from the omdb documentation.
 # (Hint: visit https://www.omdbapi.com/ to find the base url)
-
+base_url <- "https://www.omdbapi.com/"
+id <- "tt3896198"
+api_key <- "b65ac83d"
 
 # Make a variable called movie that has the name of your favorite movie
 
@@ -12,7 +14,7 @@ library(httr)
 # Make a variable called "query.parameters" that holds a list of the parameters
 # to pass to the API. View the OMDb documentation to see which parameters
 # are available.
-
+query_params <- list(i = id, apikey = api_key)
 
 # Make a variable called request that is a string of a request URL made up of the base URL
 # and the parameters string
@@ -20,10 +22,12 @@ library(httr)
 
 # Use fromJSON to retrieve JSON data from the omdb api using your request.
 # Store the result in a variable called movie.data
-
+response <- GET(base_url, query=query_params)
+body <- content(response, "text")
+movie <- fromJSON(body)
 
 # Make movie_data into a data frame using as.data.frame
-
+View(as.data.frame(movie))
 
 # Write a function called Director that accepts a data frame of movie info and returns
 # A vector of strings that states a movie and the director of said movie.
